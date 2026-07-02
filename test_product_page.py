@@ -34,12 +34,32 @@ def test_guest_can_add_product_to_basket(browser, link  ):
     #     → нажал «Добавить в корзину»
     #       → решил alert-задачку
     #         → проверил: цена в корзине = цена товара
-
-def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
-    pass
+@pytest.mark.xfail(reason="Success message is present after adding to basket")
+def test_guest_cant_see_not_success_message_after_adding_product_to_basket(browser):
+    # Шаг 1. Открываем страницу товара
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+    page = ProductPage(browser, link)
+    page.open()
+    # Шаг 2. Добавляем товар в корзину
+    page.add_to_basket()
+    # Шаг 3. Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+    page.should_not_be_success_message()
 
 def test_guest_cant_see_success_message(browser):
-    pass
+    # Шаг 1. Открываем страницу товара
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+    page = ProductPage(browser, link)
+    page.open()
+    # Шаг 2. Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+    page.should_not_be_success_message()
 
+@pytest.mark.xfail(reason="Success message does not disappear from DOM")
 def test_message_disappeared_after_adding_product_to_basket(browser):
-    pass
+    # Шаг 1. Открываем страницу товара
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+    page = ProductPage(browser, link)
+    page.open()
+    # Шаг 2. Добавляем товар в корзину
+    page.add_to_basket()
+    # Шаг 3. Проверяем, что нет сообщения об успехе с помощью is_disappeared
+    page.message_disappeared_after_adding_product_to_basket()
