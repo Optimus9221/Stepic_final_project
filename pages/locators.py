@@ -23,3 +23,7 @@ class ProductPageLocators():
     BASKET_PRICE = (By.XPATH, "//div[contains(@class, 'alert-info')]//strong")
     PRODUCT_NAME_IN_BASKET = (By.XPATH, "//div[contains(@class, 'alertinner')][contains(., 'has been added to your basket')]//strong")
     SUCCESS_MESSAGE = (By.XPATH, "//div[contains(@class, 'alertinner')][contains(normalize-space(.), 'has been')]")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
