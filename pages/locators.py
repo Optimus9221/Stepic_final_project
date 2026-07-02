@@ -15,3 +15,10 @@ class LoginPageLocators():
     REGISTER_FIELD_PASSWORD1 = (By.XPATH, "//input[@id='id_registration-password1']")
     REGISTER_FIELD_PASSWORD2 = (By.XPATH, "//input[@id='id_registration-password2']")
     REGISTER_BUTTON = (By.XPATH, "//button[@name='registration_submit']")
+
+class ProductPageLocators():
+    ADD_TO_BASKET_BUTTON = (By.XPATH, "//button[@class='btn btn-lg btn-primary btn-add-to-basket']")
+    PRODUCT_NAME = (By.XPATH, "//h1")
+    PRODUCT_PRICE = (By.XPATH, "//p[@class='price_color']")
+    BASKET_PRICE = (By.XPATH, "//div[contains(@class, 'alert-info')]//strong")
+    PRODUCT_NAME_IN_BASKET = (By.XPATH, "//div[contains(@class, 'alertinner')][contains(., 'has been added to your basket')]//strong")
