@@ -1,6 +1,5 @@
 import pytest
 
-from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 
@@ -25,9 +24,8 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page = MainPage(browser, link)
     page.open()
     # Шаг 2. Переходит в корзину по кнопке в шапке сайта
-    page.open_basket_page()
+    basket_page = page.open_basket_page()
     # Шаг 3. Ожидаем, что в корзине нет товаров
-    basket_page = BasketPage(browser, browser.current_url)
     basket_page.should_not_be_products_in_basket()
     # Шаг 4. Ожидаем, что есть текст о том что корзина пуста
     basket_page.should_be_empty_basket_message()
