@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    VIEW_BASKET_BUTTON = (By.CSS_SELECTOR, ".basket-mini .btn-group > a")
 
 class LoginPageLocators():
     LOGIN_PAGE_URL = "/login"
@@ -21,9 +22,18 @@ class ProductPageLocators():
     PRODUCT_NAME = (By.XPATH, "//h1")
     PRODUCT_PRICE = (By.XPATH, "//p[@class='price_color']")
     BASKET_PRICE = (By.XPATH, "//div[contains(@class, 'alert-info')]//strong")
-    PRODUCT_NAME_IN_BASKET = (By.XPATH, "//div[contains(@class, 'alertinner')][contains(., 'has been added to your basket')]//strong")
-    SUCCESS_MESSAGE = (By.XPATH, "//div[contains(@class, 'alertinner')][contains(normalize-space(.), 'has been')]")
+    PRODUCT_NAME_IN_BASKET = (By.XPATH,
+                              "//div[contains(@class, 'alertinner')][contains(., 'has been added to your basket')]//strong")
+    SUCCESS_MESSAGE = (By.XPATH,
+                       "//div[contains(@class, 'alertinner')][contains(normalize-space(.), 'has been')]")
 
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
+class BasketPageLocators():
+    PRODUCTS_IN_BASKET = (By.XPATH, "//form[@id='basket_formset']")
+    NO_PRODUCTS_IN_BASKET = (
+        By.XPATH,
+        "//div[@id='content_inner']//p[contains(normalize-space(.), 'Your basket is empty')]",
+    )

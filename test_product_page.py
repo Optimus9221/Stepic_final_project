@@ -75,3 +75,11 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    pass
+
+    # Шаг 1. Гость открывает страницу товара
+    # Шаг 2. Переходит в корзину по кнопке в шапке
+    # Шаг 3. Ожидаем, что в корзине нет товаров
+    # Шаг 4. Ожидаем, что есть текст о том что корзина пуста
